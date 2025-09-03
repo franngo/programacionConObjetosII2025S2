@@ -13,6 +13,8 @@ public class PlantaPermanente extends Empleado {
 		this.cantidadHijos = cantidadHijos;
 		this.antiguedad = antiguedad;
 	}
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	@Override
 	public float sueldoBruto() {
@@ -20,7 +22,7 @@ public class PlantaPermanente extends Empleado {
 	}
 	
 	private float asignacionHijo() {
-		return cantidadHijos * 150;
+		return this.cantidadHijos * 150;
 	}
 	
 	private float asignacionConyuge() {
@@ -29,21 +31,22 @@ public class PlantaPermanente extends Empleado {
 	}
 	
 	private float asignacionAntiguedad() {
-		return antiguedad * 50;
+		return this.antiguedad * 50;
 	}
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	@Override
 	public float retenciones() {
-		float aDevolver = this.retencionesObraSocial() + retencionesAportes();
-		return 0;
+		return this.retencionesObraSocial() + this.retencionesAportes();
 	}
 	
 	private float retencionesObraSocial() {
-		return 0;
+		return (10 * this.sueldoBruto() / 100) + (this.cantidadHijos * 20);
 	}
 	
 	private float retencionesAportes() {
-		return 0;
+		return 15 * this.sueldoBruto() / 100;
 	}
 
 }

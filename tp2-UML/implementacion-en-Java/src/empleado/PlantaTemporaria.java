@@ -13,17 +13,35 @@ public class PlantaTemporaria extends Empleado {
 		this.fechaFinDesignacion = fechaFinDesignacion;
 		this.cantHorasExtras = cantHorasExtras;
 	}
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	@Override
 	public float sueldoBruto() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getSueldoBasico() + this.bonoHorasExtra();
 	}
+	
+	private float bonoHorasExtra() {
+		return this.cantHorasExtras * 40;
+	}
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	@Override
 	public float retenciones() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.retencionesObraSocial() + this.retencionesAportes();
+	}
+	
+	private float retencionesObraSocial() {
+		return (10 * this.sueldoBruto() / 100) + this.cargoObraSocial();
+	}
+	
+	private float cargoObraSocial() {
+		return (this.edad()>50) ? 25 : 0;
+	}
+	
+	private float retencionesAportes() {
+		return (10 * this.sueldoBruto() / 100) * (this.cantHorasExtras * 5);
 	}
 
 }
