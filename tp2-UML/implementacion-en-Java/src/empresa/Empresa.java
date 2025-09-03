@@ -40,4 +40,9 @@ public class Empresa {
 				map((empleado) -> empleado.retenciones()).
 				reduce(0f, (a,b) -> Float.sum(a, b));
 	}
+	
+	//para testing
+	public List<ReciboDeHaberes> getRecibosHaberes() {
+		return this.recibosHaberes;
+	}
 }
