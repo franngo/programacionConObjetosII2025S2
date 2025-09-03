@@ -19,8 +19,7 @@ public class Contratado extends Empleado {
 
 	@Override
 	public float sueldoBruto() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getSueldoBasico();
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -28,16 +27,19 @@ public class Contratado extends Empleado {
 
 	@Override
 	public float retenciones() {
-		// TODO Auto-generated method stub
-		return 0;
+		return gastosAdministrativosContractuales();
+	}
+	
+	private float gastosAdministrativosContractuales() {
+		return 50;
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 	@Override
 	protected String desgloceConceptos() {
-		return "a";
+		return "Sueldo básico: " + this.getSueldoBasico() + " | " +
+		"Gastos administrativos contractuales: -" + this.gastosAdministrativosContractuales();
 	}
-	//TODO
 
 }

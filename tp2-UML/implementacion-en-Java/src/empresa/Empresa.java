@@ -2,7 +2,6 @@ package empresa;
 
 import empleado.*;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.ArrayList;
 
 public class Empresa {
