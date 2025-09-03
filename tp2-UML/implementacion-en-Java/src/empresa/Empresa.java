@@ -21,6 +21,7 @@ public class Empresa {
 	public void realizarLiquidacionSueldos() {
 		
 	}
+	//TODO
 	
 	public float totalSueldosNetos() {
 		return empleados.stream().

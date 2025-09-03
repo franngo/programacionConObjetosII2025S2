@@ -29,9 +29,8 @@ abstract public class Empleado {
 	}
 	
 	public ReciboDeHaberes reciboDeHaberes() {
-		return new ReciboDeHaberes(direccion, new Date(), this.sueldoBruto(), this.sueldoNeto(), "a");
+		return new ReciboDeHaberes(direccion, new Date(), this.sueldoBruto(), this.sueldoNeto(), this.desgloceConceptos());
 	}
-	//TODO: Pasarle el verdadero desgloce de conceptos en vez de un string random
 	
 	protected int edad() { //según vi, hacerlo con Date puede ser propenso a errores, por lo que internamente se usa LocalDate
 		LocalDate localFechaActual = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -49,5 +48,7 @@ abstract public class Empleado {
 	protected float getSueldoBasico() {
 		return this.sueldoBasico;
 	}
+	
+	abstract protected String desgloceConceptos();
 	
 }

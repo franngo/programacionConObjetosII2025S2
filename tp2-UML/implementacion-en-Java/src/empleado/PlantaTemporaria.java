@@ -41,7 +41,17 @@ public class PlantaTemporaria extends Empleado {
 	}
 	
 	private float retencionesAportes() {
-		return (10 * this.sueldoBruto() / 100) * (this.cantHorasExtras * 5);
+		return (10 * this.sueldoBruto() / 100) + (this.cantHorasExtras * 5);
+	}
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	@Override
+	protected String desgloceConceptos() {
+		return "Sueldo básico: " + this.getSueldoBasico() + " | " +
+		"Bono por horas extra: " + this.bonoHorasExtra() + " | " +
+		"Retenciones por obra social: -" + this.retencionesObraSocial() + " | " +
+		"Retenciones por aportes jubilatorios: -" + this.retencionesAportes();
 	}
 
 }

@@ -48,5 +48,17 @@ public class PlantaPermanente extends Empleado {
 	private float retencionesAportes() {
 		return 15 * this.sueldoBruto() / 100;
 	}
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	@Override
+	protected String desgloceConceptos() {
+		return "Sueldo básico: " + this.getSueldoBasico() + " | " +
+		"Asignación por hijo: " + this.asignacionHijo() + " | " +
+		"Asignación por cónyuge: " + this.asignacionConyuge() + " | " +
+		"Asignación por antigüedad: " + this.asignacionAntiguedad() + " | " +
+		"Retenciones por obra social: -" + this.retencionesObraSocial() + " | " +
+		"Retenciones por aportes jubilatorios: -" + this.retencionesAportes();
+	}
 
 }
