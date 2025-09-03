@@ -1,5 +1,8 @@
 package empleado;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 import empresa.ReciboDeHaberes;
 
@@ -16,6 +19,15 @@ abstract public class Empleado {
 		this.estadoCivil = estadoCivil;
 		this.fechaNacimiento = fechaNacimiento;
 		this.sueldoBasico = sueldoBasico;
+	}
+	
+	protected int edad() { //según vi, hacerlo con Date puede ser propenso a errores, por lo que internamente se usa LocalDate
+		LocalDate localFechaActual = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		LocalDate localFechaNacimiento = fechaNacimiento.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+		int diferenciaAnios = Period.between(localFechaNacimiento, localFechaActual).getYears();
+		
+		return diferenciaAnios;
 	}
 	
 	abstract public float sueldoBruto();

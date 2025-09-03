@@ -17,7 +17,7 @@
           <mxGeometry y="108" width="170" height="112" as="geometry" />
         </mxCell>
         <mxCell id="J42q6f2a1OvCjdQg6M31-5" value="&lt;div&gt;&lt;i&gt;Empleado&lt;/i&gt;&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="286" y="100" width="190" height="230" as="geometry" />
+          <mxGeometry x="286" y="80" width="190" height="250" as="geometry" />
         </mxCell>
         <mxCell id="J42q6f2a1OvCjdQg6M31-6" value="- nombre: String&lt;br&gt;- direccion: String&lt;br&gt;- estadoCivil: String&lt;br&gt;- fechaNacimiento: Date&lt;br&gt;- sueldoBasico: float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="J42q6f2a1OvCjdQg6M31-5" vertex="1">
           <mxGeometry y="26" width="190" height="84" as="geometry" />
@@ -25,11 +25,11 @@
         <mxCell id="J42q6f2a1OvCjdQg6M31-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="J42q6f2a1OvCjdQg6M31-5" vertex="1">
           <mxGeometry y="110" width="190" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="J42q6f2a1OvCjdQg6M31-8" value="&lt;u&gt;+ new(String, String, String, Date, float): Empleado&lt;/u&gt;&lt;br&gt;&lt;i&gt;+ sueldoBruto(): float&lt;br&gt;+ retenciones(): float&lt;/i&gt;&lt;br&gt;+ sueldoNeto(): float&lt;br&gt;+ reciboDeHaberes(): ReciboDeHaberes&lt;div&gt;&lt;br/&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="J42q6f2a1OvCjdQg6M31-5" vertex="1">
-          <mxGeometry y="118" width="190" height="112" as="geometry" />
+        <mxCell id="J42q6f2a1OvCjdQg6M31-8" value="&lt;u&gt;+ new(String, String, String, Date, float): Empleado&lt;/u&gt;&lt;br&gt;&lt;i&gt;+ sueldoBruto(): float&lt;br&gt;+ retenciones(): float&lt;/i&gt;&lt;br&gt;+ sueldoNeto(): float&lt;br&gt;+ reciboDeHaberes(): ReciboDeHaberes&lt;br&gt;# edad(): int&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="J42q6f2a1OvCjdQg6M31-5" vertex="1">
+          <mxGeometry y="118" width="190" height="132" as="geometry" />
         </mxCell>
         <mxCell id="J42q6f2a1OvCjdQg6M31-9" value="ReciboDeHaberes" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="275" y="-90" width="190" height="160" as="geometry" />
+          <mxGeometry x="280" y="-100" width="190" height="160" as="geometry" />
         </mxCell>
         <mxCell id="J42q6f2a1OvCjdQg6M31-10" value="- Direccion: String&lt;br&gt;- fechaEmision: Date&lt;br&gt;&lt;div&gt;- sueldoBruto: float&lt;/div&gt;&lt;div&gt;- sueldoNeto: float&lt;br&gt;- desgloceConceptos: String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="J42q6f2a1OvCjdQg6M31-9" vertex="1">
           <mxGeometry y="26" width="190" height="84" as="geometry" />
@@ -108,11 +108,11 @@
         </mxCell>
         <mxCell id="EdGxASpUeS1JBuMaIeyQ-8" value="*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="EdGxASpUeS1JBuMaIeyQ-4" vertex="1" connectable="0">
           <mxGeometry x="0.8203" y="-2" relative="1" as="geometry">
-            <mxPoint x="-11" y="-12" as="offset" />
+            <mxPoint x="-6" y="-23" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="EdGxASpUeS1JBuMaIeyQ-6" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="256" y="150" width="30" height="30" as="geometry" />
+          <mxGeometry x="256" y="120" width="30" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
