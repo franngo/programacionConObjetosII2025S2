@@ -2,6 +2,7 @@ package empresa;
 
 import empleado.*;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.ArrayList;
 
 public class Empresa {
@@ -22,14 +23,20 @@ public class Empresa {
 	}
 	
 	public float totalSueldosNetos() {
-		return 1;
+		return empleados.stream().
+				map((empleado) -> empleado.sueldoNeto()).
+				reduce(0f, (a,b) -> Float.sum(a, b));
 	}
 	
 	public float totalSueldosBrutos() {
-		return 1;
+		return empleados.stream().
+				map((empleado) -> empleado.sueldoBruto()).
+				reduce(0f, (a,b) -> Float.sum(a, b));
 	}
 	
 	public float retenciones() {
-		return 1;
+		return empleados.stream().
+				map((empleado) -> empleado.retenciones()).
+				reduce(0f, (a,b) -> Float.sum(a, b));
 	}
 }
