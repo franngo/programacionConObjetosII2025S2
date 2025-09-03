@@ -19,9 +19,10 @@ public class Empresa {
 	}
 	
 	public void realizarLiquidacionSueldos() {
-		
+		for (Empleado empleado : empleados) {
+			recibosHaberes.addFirst(empleado.reciboDeHaberes());		
+		}
 	}
-	//TODO
 	
 	public float totalSueldosNetos() {
 		return empleados.stream().

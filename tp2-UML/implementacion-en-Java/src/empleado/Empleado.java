@@ -29,7 +29,8 @@ abstract public class Empleado {
 	}
 	
 	public ReciboDeHaberes reciboDeHaberes() {
-		return new ReciboDeHaberes(direccion, new Date(), this.sueldoBruto(), this.sueldoNeto(), this.desgloceConceptos());
+		return new ReciboDeHaberes(nombre, direccion, new Date(), this.sueldoBruto(), this.sueldoNeto(), 
+				this.desgloceConceptos());
 	}
 	
 	protected int edad() { //según vi, hacerlo con Date puede ser propenso a errores, por lo que internamente se usa LocalDate
