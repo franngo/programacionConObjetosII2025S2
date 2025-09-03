@@ -21,15 +21,6 @@ abstract public class Empleado {
 		this.sueldoBasico = sueldoBasico;
 	}
 	
-	protected int edad() { //según vi, hacerlo con Date puede ser propenso a errores, por lo que internamente se usa LocalDate
-		LocalDate localFechaActual = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-		LocalDate localFechaNacimiento = fechaNacimiento.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
-		int diferenciaAnios = Period.between(localFechaNacimiento, localFechaActual).getYears();
-		
-		return diferenciaAnios;
-	}
-	
 	abstract public float sueldoBruto();
 	abstract public float retenciones();
 	
@@ -41,4 +32,22 @@ abstract public class Empleado {
 		return new ReciboDeHaberes(direccion, new Date(), this.sueldoBruto(), this.sueldoNeto(), "a");
 	}
 	//TODO: Pasarle el verdadero desgloce de conceptos en vez de un string random
+	
+	protected int edad() { //según vi, hacerlo con Date puede ser propenso a errores, por lo que internamente se usa LocalDate
+		LocalDate localFechaActual = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		LocalDate localFechaNacimiento = fechaNacimiento.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+		int diferenciaAnios = Period.between(localFechaNacimiento, localFechaActual).getYears();
+		
+		return diferenciaAnios;
+	}
+	
+	protected String getEstadoCivil() {
+		return this.estadoCivil;
+	}
+	
+	protected float getSueldoBasico() {
+		return this.sueldoBasico;
+	}
+	
 }
