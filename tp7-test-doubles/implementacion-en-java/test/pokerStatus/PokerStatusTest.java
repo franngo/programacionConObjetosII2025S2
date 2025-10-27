@@ -126,4 +126,14 @@ public class PokerStatusTest {
 		assertEquals("Trio", poqEst.verificarCartas(cartaDosP, cartaAD, cartaDiezD, cartaDiezC, cartaDiezT)); //trio
 	}
 	
+	@Test
+	public void tieneMayorValorQue() {
+		assertTrue(cartaDiezT.tieneMayorValorQue(cartaTresD));
+		assertFalse(cartaDiezT.tieneMayorValorQue(cartaDiezP));
+		assertTrue(cartaAP.tieneMayorValorQue(cartaQP));
+		assertFalse(cartaAP.tieneMayorValorQue(cartaAD));
+		assertFalse(cartaQP.tieneMayorValorQue(cartaAD));
+		assertTrue(cartaQP.tieneMayorValorQue(cartaTresD));
+	}
+	
 }

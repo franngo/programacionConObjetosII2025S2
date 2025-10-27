@@ -35,16 +35,17 @@ public class Carta {
 	}
 	
 	public boolean tieneMayorValorQue(Carta c) {
-		return this.valor.equals("K") && !(c.getValor().equals("K"))
-			|| this.valor.equals("Q") && !(c.getValor().equals("K") || c.getValor().equals("Q"))
-			|| this.valor.equals("J") && !(c.getValor().equals("K") || c.getValor().equals("Q") || c.getValor().equals("J")) 
+		return this.valor.equals("A") && !(c.getValor().equals("A"))
+			|| this.valor.equals("K") && !(c.getValor().equals("A") || c.getValor().equals("K"))
+			|| this.valor.equals("Q") && !(c.getValor().equals("A") || c.getValor().equals("K") || c.getValor().equals("Q"))
+			|| this.valor.equals("J") && !(c.getValor().equals("A") || c.getValor().equals("K") || c.getValor().equals("Q") || c.getValor().equals("J")) 
 			|| this.esNumMayorSiSonNums(c);//Integer.parseInt(this.valor) > Integer.parseInt(c.getValor());
 	}
 	
 	public boolean esNumMayorSiSonNums(Carta c) {
 		return this.tieneValorNumerico() && c.tieneValorNumerico()
 				? Integer.parseInt(this.valor) > Integer.parseInt(c.getValor()) 
-				: this.tieneValorNumerico() && c.esUnAs(); //si la carta tiene un valor del 2 al 10, ya es mayor que el as
+				: false;
 	}
 	
 	private boolean tieneValorNumerico() {
@@ -54,10 +55,6 @@ public class Carta {
 		} catch(NumberFormatException nfe) {
 			return false;
 		}
-	}
-	
-	private boolean esUnAs() {
-		return this.valor.equals("A");
 	}
 	
 }
