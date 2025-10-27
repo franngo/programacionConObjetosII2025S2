@@ -17,6 +17,12 @@ public class PokerStatusTest {
 	String dosC = "2C";
 	String dosT = "2T";
 	
+	//tres
+	String tresP = "3P";
+	String tresD = "3D";
+	String tresC = "3C";
+	String tresT = "3T";
+	
 	//reinas
 	String qP = "QP";
 	String qD = "QD";
@@ -30,6 +36,8 @@ public class PokerStatusTest {
 	String diezT = "10T";
 	
 	PokerStatus poqEst = new PokerStatus();
+	
+	//////////////////////////////////////////////////////////////////////////////
 	
 	@Test
 	public void verificarConAsesYDoses() {
@@ -50,5 +58,24 @@ public class PokerStatusTest {
 		assertTrue(poqEst.verificar(diezP, qP, diezD, diezC, diezT));
 		assertTrue(poqEst.verificar(qP, diezP, diezD, diezC, diezT));
 	}
+	
+	//////////////////////////////////////////////////////////////////////////////
+	
+	@Test
+	public void verificarExtendidoConAsesYDoses() {
+		assertEquals("Nada", poqEst.verificarExtendido(aP, qT, aC, dosP, dosT)); //nada
+		assertEquals("Poquer", poqEst.verificarExtendido(aP, aD, aT, aC, dosP)); //póquer
+		assertEquals("Trio", poqEst.verificarExtendido(dosP, aD, dosT, aC, aP)); //trio
+		assertEquals("Color", poqEst.verificarExtendido(aD, dosD, tresD, qD, diezD)); //color
+	}
+	
+	@Test
+	public void verificarExtendidoConDieces() {
+		assertEquals("Nada", poqEst.verificarExtendido(diezP, qP, dosD, diezC, aD)); //nada
+		assertEquals("Poquer", poqEst.verificarExtendido(diezP, diezD, diezC, diezT, dosP)); //póquer
+		assertEquals("Trio", poqEst.verificarExtendido(dosP, aD, diezD, diezC, diezT)); //trio
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////
 	
 }
