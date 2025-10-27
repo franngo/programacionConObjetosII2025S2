@@ -38,6 +38,7 @@ public class PokerStatusTest {
 	PokerStatus poqEst = new PokerStatus();
 	
 	//////////////////////////////////////////////////////////////////////////////
+	///punto 1
 	
 	@Test
 	public void verificarConAsesYDoses() {
@@ -60,6 +61,7 @@ public class PokerStatusTest {
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////
+	///punto 2
 	
 	@Test
 	public void verificarExtendidoConAsesYDoses() {
@@ -77,5 +79,51 @@ public class PokerStatusTest {
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////
+	///punto 3
+	
+	//ases
+	Carta cartaAP = new Carta("A", "P");
+	Carta cartaAD = new Carta("A", "D");
+	Carta cartaAC = new Carta("A", "C");
+	Carta cartaAT = new Carta("A", "T");
+	
+	//dos
+	Carta cartaDosP = new Carta("2", "P");
+	Carta cartaDosD = new Carta("2", "D");
+	Carta cartaDosC = new Carta("2", "C");
+	Carta cartaDosT = new Carta("2", "T");
+	
+	//tres
+	Carta cartaTresP = new Carta("3", "P");
+	Carta cartaTresD = new Carta("3", "D");
+	Carta cartaTresC = new Carta("3", "C");
+	Carta cartaTresT = new Carta("3", "T");
+	
+	//reinas
+	Carta cartaQP = new Carta("Q", "P");
+	Carta cartaQD = new Carta("Q", "D");
+	Carta cartaQC = new Carta("Q", "C");
+	Carta cartaQT = new Carta("Q", "T");
+	
+	//dieces
+	Carta cartaDiezP = new Carta("10", "P");
+	Carta cartaDiezD = new Carta("10", "D");
+	Carta cartaDiezC = new Carta("10", "C");
+	Carta cartaDiezT = new Carta("10", "T");
+	
+	@Test
+	public void verificarCartasConAsesYDoses() {
+		assertEquals("Nada", poqEst.verificarCartas(cartaAP, cartaQT, cartaAC, cartaDosP, cartaDosT)); //nada
+		assertEquals("Poquer", poqEst.verificarCartas(cartaAP, cartaAD, cartaAT, cartaAC, cartaDosP)); //póquer
+		assertEquals("Trio", poqEst.verificarCartas(cartaDosP, cartaAD, cartaDosT, cartaAC, cartaAP)); //trio
+		assertEquals("Color", poqEst.verificarCartas(cartaAD, cartaDosD, cartaTresD, cartaQD, cartaDiezD)); //color
+	}
+	
+	@Test
+	public void verificarCartasConDieces() {
+		assertEquals("Nada", poqEst.verificarCartas(cartaDiezP, cartaQP, cartaDosD, cartaDiezC, cartaAD)); //nada
+		assertEquals("Poquer", poqEst.verificarCartas(cartaDiezP, cartaDiezD, cartaDiezC, cartaDiezT, cartaDosP)); //póquer
+		assertEquals("Trio", poqEst.verificarCartas(cartaDosP, cartaAD, cartaDiezD, cartaDiezC, cartaDiezT)); //trio
+	}
 	
 }
