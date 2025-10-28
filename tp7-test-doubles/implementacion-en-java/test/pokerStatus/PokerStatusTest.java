@@ -1,7 +1,9 @@
 package pokerStatus;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 public class PokerStatusTest {
 	
@@ -134,6 +136,164 @@ public class PokerStatusTest {
 		assertFalse(cartaAP.tieneMayorValorQue(cartaAD));
 		assertFalse(cartaQP.tieneMayorValorQue(cartaAD));
 		assertTrue(cartaQP.tieneMayorValorQue(cartaTresD));
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////
+	///punto 4 (testear el verificarCartas con test doubles)
+	
+	Carta cAP = mock(Carta.class);
+	Carta cAD = mock(Carta.class);
+	Carta cAC = mock(Carta.class);
+	Carta cAT = mock(Carta.class);
+	
+	Carta cDosD = mock(Carta.class);
+	
+	Carta cTresD = mock(Carta.class);
+	
+	Carta cQD = mock(Carta.class);
+	
+	Carta cDiezD = mock(Carta.class);
+	
+	//agrego los when para tieneMismoValorQue y tieneMismoPaloQue
+	@BeforeEach
+	public void setUp() {
+		//tieneMismoValorQue()
+		when(cAP.tieneMismoValorQue(cAD)).thenReturn(true);
+		when(cAP.tieneMismoValorQue(cAC)).thenReturn(true);
+		when(cAP.tieneMismoValorQue(cAT)).thenReturn(true);
+		when(cAP.tieneMismoValorQue(cDosD)).thenReturn(false);
+		when(cAP.tieneMismoValorQue(cTresD)).thenReturn(false);
+		when(cAP.tieneMismoValorQue(cQD)).thenReturn(false);
+		when(cAP.tieneMismoValorQue(cDiezD)).thenReturn(false);
+		
+		when(cAD.tieneMismoValorQue(cAP)).thenReturn(true);
+		when(cAD.tieneMismoValorQue(cAC)).thenReturn(true);
+		when(cAD.tieneMismoValorQue(cAT)).thenReturn(true);
+		when(cAD.tieneMismoValorQue(cDosD)).thenReturn(false);
+		when(cAD.tieneMismoValorQue(cTresD)).thenReturn(false);
+		when(cAD.tieneMismoValorQue(cQD)).thenReturn(false);
+		when(cAD.tieneMismoValorQue(cDiezD)).thenReturn(false);
+		
+		when(cAC.tieneMismoValorQue(cAP)).thenReturn(true);
+		when(cAC.tieneMismoValorQue(cAD)).thenReturn(true);
+		when(cAC.tieneMismoValorQue(cAT)).thenReturn(true);
+		when(cAC.tieneMismoValorQue(cDosD)).thenReturn(false);
+		when(cAC.tieneMismoValorQue(cTresD)).thenReturn(false);
+		when(cAC.tieneMismoValorQue(cQD)).thenReturn(false);
+		when(cAC.tieneMismoValorQue(cDiezD)).thenReturn(false);
+		
+		when(cAT.tieneMismoValorQue(cAP)).thenReturn(true);
+		when(cAT.tieneMismoValorQue(cAD)).thenReturn(true);
+		when(cAT.tieneMismoValorQue(cAC)).thenReturn(true);
+		when(cAT.tieneMismoValorQue(cDosD)).thenReturn(false);
+		when(cAT.tieneMismoValorQue(cTresD)).thenReturn(false);
+		when(cAT.tieneMismoValorQue(cQD)).thenReturn(false);
+		when(cAT.tieneMismoValorQue(cDiezD)).thenReturn(false);
+		
+		when(cDosD.tieneMismoValorQue(cAP)).thenReturn(false);
+		when(cDosD.tieneMismoValorQue(cAD)).thenReturn(false);
+		when(cDosD.tieneMismoValorQue(cAC)).thenReturn(false);
+		when(cDosD.tieneMismoValorQue(cAT)).thenReturn(false);
+		when(cDosD.tieneMismoValorQue(cTresD)).thenReturn(false);
+		when(cDosD.tieneMismoValorQue(cQD)).thenReturn(false);
+		when(cDosD.tieneMismoValorQue(cDiezD)).thenReturn(false);
+		
+		when(cTresD.tieneMismoValorQue(cAP)).thenReturn(false);
+		when(cTresD.tieneMismoValorQue(cAD)).thenReturn(false);
+		when(cTresD.tieneMismoValorQue(cAC)).thenReturn(false);
+		when(cTresD.tieneMismoValorQue(cAT)).thenReturn(false);
+		when(cTresD.tieneMismoValorQue(cDosD)).thenReturn(false);
+		when(cTresD.tieneMismoValorQue(cQD)).thenReturn(false);
+		when(cTresD.tieneMismoValorQue(cDiezD)).thenReturn(false);
+		
+		when(cQD.tieneMismoValorQue(cAP)).thenReturn(false);
+		when(cQD.tieneMismoValorQue(cAD)).thenReturn(false);
+		when(cQD.tieneMismoValorQue(cAC)).thenReturn(false);
+		when(cQD.tieneMismoValorQue(cAT)).thenReturn(false);
+		when(cQD.tieneMismoValorQue(cDosD)).thenReturn(false);
+		when(cQD.tieneMismoValorQue(cTresD)).thenReturn(false);
+		when(cQD.tieneMismoValorQue(cDiezD)).thenReturn(false);
+		
+		when(cDiezD.tieneMismoValorQue(cAP)).thenReturn(false);
+		when(cDiezD.tieneMismoValorQue(cAD)).thenReturn(false);
+		when(cDiezD.tieneMismoValorQue(cAC)).thenReturn(false);
+		when(cDiezD.tieneMismoValorQue(cAT)).thenReturn(false);
+		when(cDiezD.tieneMismoValorQue(cDosD)).thenReturn(false);
+		when(cDiezD.tieneMismoValorQue(cTresD)).thenReturn(false);
+		when(cDiezD.tieneMismoValorQue(cQD)).thenReturn(false);
+		
+		//tieneMismoPaloQue()
+		when(cAP.tieneMismoPaloQue(cAD)).thenReturn(false);
+		when(cAP.tieneMismoPaloQue(cAC)).thenReturn(false);
+		when(cAP.tieneMismoPaloQue(cAT)).thenReturn(false);
+		when(cAP.tieneMismoPaloQue(cDosD)).thenReturn(false);
+		when(cAP.tieneMismoPaloQue(cTresD)).thenReturn(false);
+		when(cAP.tieneMismoPaloQue(cQD)).thenReturn(false);
+		when(cAP.tieneMismoPaloQue(cDiezD)).thenReturn(false);
+		
+		when(cAD.tieneMismoPaloQue(cAP)).thenReturn(false);
+		when(cAD.tieneMismoPaloQue(cAC)).thenReturn(false);
+		when(cAD.tieneMismoPaloQue(cAT)).thenReturn(false);
+		when(cAD.tieneMismoPaloQue(cDosD)).thenReturn(true);
+		when(cAD.tieneMismoPaloQue(cTresD)).thenReturn(true);
+		when(cAD.tieneMismoPaloQue(cQD)).thenReturn(true);
+		when(cAD.tieneMismoPaloQue(cDiezD)).thenReturn(true);
+		
+		when(cAC.tieneMismoPaloQue(cAP)).thenReturn(false);
+		when(cAC.tieneMismoPaloQue(cAD)).thenReturn(false);
+		when(cAC.tieneMismoPaloQue(cAT)).thenReturn(false);
+		when(cAC.tieneMismoPaloQue(cDosD)).thenReturn(false);
+		when(cAC.tieneMismoPaloQue(cTresD)).thenReturn(false);
+		when(cAC.tieneMismoPaloQue(cQD)).thenReturn(false);
+		when(cAC.tieneMismoPaloQue(cDiezD)).thenReturn(false);
+		
+		when(cAT.tieneMismoPaloQue(cAP)).thenReturn(false);
+		when(cAT.tieneMismoPaloQue(cAD)).thenReturn(false);
+		when(cAT.tieneMismoPaloQue(cAC)).thenReturn(false);
+		when(cAT.tieneMismoPaloQue(cDosD)).thenReturn(false);
+		when(cAT.tieneMismoPaloQue(cTresD)).thenReturn(false);
+		when(cAT.tieneMismoPaloQue(cQD)).thenReturn(false);
+		when(cAT.tieneMismoPaloQue(cDiezD)).thenReturn(false);
+		
+		when(cDosD.tieneMismoPaloQue(cAP)).thenReturn(false);
+		when(cDosD.tieneMismoPaloQue(cAD)).thenReturn(true);
+		when(cDosD.tieneMismoPaloQue(cAC)).thenReturn(false);
+		when(cDosD.tieneMismoPaloQue(cAT)).thenReturn(false);
+		when(cDosD.tieneMismoPaloQue(cTresD)).thenReturn(true);
+		when(cDosD.tieneMismoPaloQue(cQD)).thenReturn(true);
+		when(cDosD.tieneMismoPaloQue(cDiezD)).thenReturn(true);
+		
+		when(cTresD.tieneMismoPaloQue(cAP)).thenReturn(false);
+		when(cTresD.tieneMismoPaloQue(cAD)).thenReturn(true);
+		when(cTresD.tieneMismoPaloQue(cAC)).thenReturn(false);
+		when(cTresD.tieneMismoPaloQue(cAT)).thenReturn(false);
+		when(cTresD.tieneMismoPaloQue(cDosD)).thenReturn(true);
+		when(cTresD.tieneMismoPaloQue(cQD)).thenReturn(true);
+		when(cTresD.tieneMismoPaloQue(cDiezD)).thenReturn(true);
+		
+		when(cQD.tieneMismoPaloQue(cAP)).thenReturn(false);
+		when(cQD.tieneMismoPaloQue(cAD)).thenReturn(true);
+		when(cQD.tieneMismoPaloQue(cAC)).thenReturn(false);
+		when(cQD.tieneMismoPaloQue(cAT)).thenReturn(false);
+		when(cQD.tieneMismoPaloQue(cDosD)).thenReturn(true);
+		when(cQD.tieneMismoPaloQue(cTresD)).thenReturn(true);
+		when(cQD.tieneMismoPaloQue(cDiezD)).thenReturn(true);
+		
+		when(cDiezD.tieneMismoPaloQue(cAP)).thenReturn(false);
+		when(cDiezD.tieneMismoPaloQue(cAD)).thenReturn(true);
+		when(cDiezD.tieneMismoPaloQue(cAC)).thenReturn(false);
+		when(cDiezD.tieneMismoPaloQue(cAT)).thenReturn(false);
+		when(cDiezD.tieneMismoPaloQue(cDosD)).thenReturn(true);
+		when(cDiezD.tieneMismoPaloQue(cTresD)).thenReturn(true);
+		when(cDiezD.tieneMismoPaloQue(cQD)).thenReturn(true);
+	}
+	
+	@Test
+	public void verificarCartasMockeando() {
+		assertEquals("Nada", poqEst.verificarCartas(cAD, cQD, cAC, cDosD, cTresD)); //nada
+		assertEquals("Poquer", poqEst.verificarCartas(cAP, cAD, cAT, cAC, cDosD)); //póquer
+		assertEquals("Trio", poqEst.verificarCartas(cDosD, cAD, cTresD, cAC, cAP)); //trio
+		assertEquals("Color", poqEst.verificarCartas(cAD, cDosD, cTresD, cQD, cDiezD)); //color
 	}
 	
 }
