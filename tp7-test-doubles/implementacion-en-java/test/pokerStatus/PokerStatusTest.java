@@ -155,6 +155,7 @@ public class PokerStatusTest {
 	Carta cDiezD = mock(Carta.class);
 	
 	//agrego los when para tieneMismoValorQue y tieneMismoPaloQue
+	//(lo metí en un setUp porque pensaba hacer el ej. siguiente de las jugadas, pero no tengo tiempo)
 	@BeforeEach
 	public void setUp() {
 		//tieneMismoValorQue()
@@ -295,5 +296,4 @@ public class PokerStatusTest {
 		assertEquals("Trio", poqEst.verificarCartas(cDosD, cAD, cTresD, cAC, cAP)); //trio
 		assertEquals("Color", poqEst.verificarCartas(cAD, cDosD, cTresD, cQD, cDiezD)); //color
 	}
-	
 }
